@@ -1,8 +1,7 @@
-
 import pandas as pd
 
 # Read Excel file
-df = pd.read_excel(r'D:\new.xlsx')
+df = pd.read_csv(r'D:\p3.csv')
 
 print("First few rows")
 print(df.head())
@@ -21,5 +20,5 @@ df['Bonus'] = df['Salary'] * 0.1
 print("\nData with new column (Bonus):")
 print(df)
 
-df.to_excel('output.xlsx', index=False)
+df.to_csv('output.csv', index=False)
 print("\nData written to output.xlsx")
