@@ -94,3 +94,38 @@ print("\nData written to output.xlsx")
 # [1000 rows x 4 columns]
 
 # Data written to output.xlsx
+
+
+
+
+
+
+
+
+
+
+# class program
+
+from functools import partial
+def square(x):
+    return x*x
+
+def derivative(x):
+    return 2*x
+
+def difference_quotient(f,x,h):
+    return(f(x+h)-f(x))/h
+
+derivative_estimate=partial(difference_quotient,square,h=0.0001)
+x_value=list(range(-10,10))
+actual_derivatives=list(map(derivative,x_value))
+
+estimate_derivatives=list(map(derivative_estimate,x_value))
+
+import matplotlib.pyplot as plt
+plt.title("Actual Derivative vs Estimates")
+plt.plot(x_value,actual_derivatives,'rx',label="Actual")
+plt.plot(x_value,estimate_derivatives,'b+',label="Estimate")
+plt.legend(loc=9)
+plt.show()
+
